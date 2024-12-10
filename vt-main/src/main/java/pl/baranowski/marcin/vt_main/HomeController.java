@@ -34,7 +34,7 @@ public class HomeController {
 
     @GetMapping("/siema")
     public String siema() {
-        return "siema Marcin";
+        return "siema Marcineeeeek";
     }
 
     @GetMapping("/students/block/{seconds}")
