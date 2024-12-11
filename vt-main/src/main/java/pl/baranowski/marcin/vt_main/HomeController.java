@@ -14,7 +14,8 @@ public class HomeController {
     private final RestClient restClient;
 
     public HomeController(RestClient.Builder builder) {
-        this.restClient = builder.baseUrl("http://localhost:8090").build();
+//        this.restClient = builder.baseUrl("http://localhost:8090").build();
+        this.restClient = builder.baseUrl("https://vt-app-service-bjh9ghengmdhgagr.polandcentral-01.azurewebsites.net").build();
     }
 
 //    @GetMapping("/block/{seconds}")
