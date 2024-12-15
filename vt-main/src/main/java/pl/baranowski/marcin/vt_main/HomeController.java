@@ -15,18 +15,10 @@ public class HomeController {
 
     public HomeController(RestClient.Builder builder) {
 //        this.restClient = builder.baseUrl("http://localhost:8090").build();
-        this.restClient = builder.baseUrl("https://vt-app-service-bjh9ghengmdhgagr.polandcentral-01.azurewebsites.net").build();
+        this.restClient = builder
+                .baseUrl("https://vt-app-serviceapp-dmbthkaqe6a3ffh0.polandcentral-01.azurewebsites.net")
+                .build();
     }
-
-//    @GetMapping("/block/{seconds}")
-//    public String home(@PathVariable Integer seconds) {
-//        ResponseEntity<Void> result = restClient.get()
-//                .uri("/block/" + seconds)
-//                .retrieve()
-//                .toBodilessEntity();
-//        log.info("{} on {}", result.getStatusCode(), Thread.currentThread());
-//        return Thread.currentThread().toString();
-//    }
 
     @GetMapping("/")
     public String hello() {
