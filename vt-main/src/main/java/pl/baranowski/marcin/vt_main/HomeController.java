@@ -2,6 +2,7 @@ package pl.baranowski.marcin.vt_main;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,11 +14,8 @@ public class HomeController {
     private static final Logger log = LoggerFactory.getLogger(HomeController.class);
     private final RestClient restClient;
 
-    public HomeController(RestClient.Builder builder) {
-//        this.restClient = builder.baseUrl("http://localhost:8090").build();
-        this.restClient = builder
-                .baseUrl("https://vt-app-serviceapp-dmbthkaqe6a3ffh0.polandcentral-01.azurewebsites.net")
-                .build();
+    public HomeController(RestClient restClient) {
+        this.restClient = restClient;
     }
 
     @GetMapping("/")
@@ -31,12 +29,20 @@ public class HomeController {
     }
 
     @GetMapping("/students/block/{seconds}")
-    public String student(@PathVariable Integer seconds) {
-        ResponseEntity<Void> result = restClient.get()
-                .uri("/students/block/" + seconds)
-                .retrieve()
-                .toBodilessEntity();
-        log.info("{} on {}", result.getStatusCode(), Thread.currentThread());
-        return Thread.currentThread().toString();
+    public ResponseEntity<String> student(@PathVariable Integer seconds) {
+        try {
+            ResponseEntity<Void> result = restClient.get()
+                    .uri("/students/block/" + seconds)
+                    .retrieve()
+                    .toBodilessEntity();
+
+            log.info("Response: {} on {}", result.getStatusCode(), Thread.currentThread());
+            return ResponseEntity.ok(Thread.currentThread().toString());
+
+        } catch (Exception ex) {
+            log.error("Request failed on thread {}: {}", Thread.currentThread(), ex.toString());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Request failed: " + ex.getMessage());
+        }
     }
 }
