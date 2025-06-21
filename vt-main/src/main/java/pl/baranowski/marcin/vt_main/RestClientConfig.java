@@ -20,13 +20,13 @@ public class RestClientConfig {
     public RestClient restClient() {
         // Tworzenie menedżera połączeń
         PoolingHttpClientConnectionManager connectionManager = new PoolingHttpClientConnectionManager();
-        connectionManager.setMaxTotal(900); // dla wszystkich hostow
-        connectionManager.setDefaultMaxPerRoute(700); // dla pojedynczego hosta
+        connectionManager.setMaxTotal(1000); // dla wszystkich hostow
+        connectionManager.setDefaultMaxPerRoute(800); // dla pojedynczego hosta
 
         // Konfiguracja timeoutów
         RequestConfig config = RequestConfig.custom()
-                .setConnectTimeout(Timeout.ofSeconds(30))
-                .setResponseTimeout(Timeout.ofSeconds(45))
+                .setConnectTimeout(Timeout.ofSeconds(40))
+                .setResponseTimeout(Timeout.ofSeconds(60))
                 .build();
 
         // Tworzenie klienta Apache
