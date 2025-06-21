@@ -1,7 +1,5 @@
 package pl.baranowski.marcin.vt_main;
 
-
-
 import org.apache.hc.client5.http.config.RequestConfig;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
 import org.apache.hc.client5.http.impl.classic.HttpClients;
@@ -27,8 +25,8 @@ public class RestClientConfig {
 
         // Konfiguracja timeoutów
         RequestConfig config = RequestConfig.custom()
-                .setConnectTimeout(Timeout.ofSeconds(10))
-                .setResponseTimeout(Timeout.ofSeconds(15))
+                .setConnectTimeout(Timeout.ofSeconds(30))
+                .setResponseTimeout(Timeout.ofSeconds(45))
                 .build();
 
         // Tworzenie klienta Apache
