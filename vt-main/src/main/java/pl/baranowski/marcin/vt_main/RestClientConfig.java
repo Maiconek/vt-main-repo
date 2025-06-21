@@ -22,8 +22,8 @@ public class RestClientConfig {
     public RestClient restClient() {
         // Tworzenie menedżera połączeń
         PoolingHttpClientConnectionManager connectionManager = new PoolingHttpClientConnectionManager();
-        connectionManager.setMaxTotal(300); // dla wszystkich hostow
-        connectionManager.setDefaultMaxPerRoute(100); // dla pojedynczego hosta
+        connectionManager.setMaxTotal(500); // dla wszystkich hostow
+        connectionManager.setDefaultMaxPerRoute(200); // dla pojedynczego hosta
 
         // Konfiguracja timeoutów
         RequestConfig config = RequestConfig.custom()
