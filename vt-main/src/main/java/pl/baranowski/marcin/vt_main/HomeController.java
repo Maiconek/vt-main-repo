@@ -20,7 +20,7 @@ public class HomeController {
 
     @GetMapping("/")
     public String hello() {
-        return "Hello Marcin";
+        return "Hello Marcin, co sie dzieje";
     }
 
     @GetMapping("/siema")
