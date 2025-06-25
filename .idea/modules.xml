@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/vt-main/vt-main.iml" filepath="$PROJECT_DIR$/vt-main/vt-main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/vt-main-repo.iml" filepath="$PROJECT_DIR$/.idea/vt-main-repo.iml" />
     </modules>
   </component>

@@ -9,9 +9,6 @@
         <module name="vt-main" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="vt-main" target="19" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
