@@ -37,11 +37,10 @@ public class RestClientConfig {
                         .evictIdleConnections(TimeValue.ofSeconds(60))
                         .build();
 
-        // Adapter do Springa (tu używamy Apache HttpClient!)
         HttpComponentsClientHttpRequestFactory requestFactory =
                 new HttpComponentsClientHttpRequestFactory(httpClient);
 
-        // Tworzenie RestClient z naszą fabryką
+        // Tworzenie RestClienta
         return RestClient.builder()
                 .requestFactory(requestFactory)
                 .baseUrl("https://vt-app-serviceapp-dmbthkaqe6a3ffh0.polandcentral-01.azurewebsites.net")
